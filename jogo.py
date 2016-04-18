@@ -1,13 +1,22 @@
+import numpy as np
+
 class Jogo:
-	def __init__(self):
+	def __init__(self):b
+		self.jogador = 'X' 
+		self.tabuleiro = np.zeros((3,3))
 
 	def recebe_jogada(linha,coluna):
-	#recebe e registra a jogada 
-	#alterna os jogadores
+		self.tabuleiro[linha, coluna] = self.jogador
+		if self.jogador == 'X':
+			self.jogador = 'O'
+		else:
+			self.jogador = 'X'
 
-	def verifica_ganhador():
+    def verifica_ganhador():
 	#retorna 0 em caso de empate
-	#retorna1 se x for o vencedor
+	#retorna 1 se X for o vencedor
+	#retorna 2 se O for o vencedor
+	#retorna -2 se nenhuma das anteriores for verdadeira
 
 	def limpa_jogadas():
 	#reinicia o jogo mantendo a vez do jogador
