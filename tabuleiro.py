@@ -7,6 +7,7 @@ class tabuleiro:
     def __init__(self):
         # Definindo janela
         self.window = tk.Tk()
+        self.window.title("Jogo da velha!")
         self.window.geometry("300x350+100+100")
         self.window.rowconfigure(0, minsize=50)
         self.window.rowconfigure(1, minsize=100)
@@ -57,6 +58,7 @@ class tabuleiro:
         # Definindo label
         self.label = tk.Label(self.window)
         self.label.grid(row = 0, column = 0, columnspan=3)
+        self.label.configure(font="Courier 20 bold")
     #    if self.jogador == 'X':
     #        self.label.configure(text = "X, é a sua vez")
     #    if self.jogador == 'O':
@@ -75,46 +77,55 @@ class tabuleiro:
     # Botão 10
     def botão_1_0clicado(self):
         self.botão_clicado(1, 0)
+        self.botão_1_0.configure(font="Courier 35 bold")
         self.botão_1_0.configure(text = "x")
         self.botão_1_0.configure(state = "disabled")
     # Botão 11
     def botão_1_1clicado(self):
         self.botão_clicado(1, 1)
+        self.botão_1_1.configure(font="Courier 35 bold")
         self.botão_1_1.configure(text = "x")
         self.botão_1_1.configure(state = "disabled")
     # Botão 12
     def botão_1_2clicado(self):
         self.botão_clicado(1, 2)
+        self.botão_1_2.configure(font="Courier 35 bold")
         self.botão_1_2.configure(text = "x")
         self.botão_1_2.configure(state = "disabled")
     # Botão 20
     def botão_2_0clicado(self):
         self.botão_clicado(2, 0)
+        self.botão_2_0.configure(font="Courier 35 bold")
         self.botão_2_0.configure(text = "x")
         self.botão_2_0.configure(state = "disabled")
     # Botão 21
     def botão_2_1clicado(self):
         self.botão_clicado(2, 1)
+        self.botão_2_1.configure(font="Courier 35 bold")
         self.botão_2_1.configure(text = "x")
         self.botão_2_1.configure(state = "disabled")
     # Botão 22
     def botão_2_2clicado(self):
         self.botão_clicado(2, 2)
+        self.botão_2_2.configure(font="Courier 35 bold")
         self.botão_2_2.configure(text = "x")
         self.botão_2_2.configure(state = "disabled")
     # Botão 30
     def botão_3_0clicado(self):
         self.botão_clicado(3, 0)
+        self.botão_3_0.configure(font="Courier 35 bold")
         self.botão_3_0.configure(text = "x")
         self.botão_3_0.configure(state = "disabled")
     # Botão 31
     def botão_3_1clicado(self):
         self.botão_clicado(3, 1)
+        self.botão_3_1.configure(font="Courier 35 bold")
         self.botão_3_1.configure(text = "x")
         self.botão_3_1.configure(state = "disabled")
     # Botão 32
     def botão_3_2clicado(self):
         self.botão_clicado(3, 2)
+        self.botão_3_2.configure(font="Courier 35 bold")
         self.botão_3_2.configure(text = "x")
         self.botão_3_2.configure(state = "disabled")
         
