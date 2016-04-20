@@ -15,11 +15,52 @@ class tabuleiro:
         self.window.columnconfigure(0, minsize=100)
         self.window.columnconfigure(1, minsize=100)
         self.window.columnconfigure(2, minsize=100)
+        
+        # Definindo botões
+        # Botão 11
+        self.botão_1_1 = tk.Button(self.window)
+        self.botão_1_1.configure(command=self.botão_1_1clicado)
+        self.botão_1_1.grid(row=1, column=1, sticky="nsew")
+        # Botão 12
+        self.botão_1_2 = tk.Button(self.window)
+        self.botão_1_2.configure(command=self.botão_1_2clicado)
+        self.botão_1_2.grid(row=1, column=2, sticky="nsew")
+        # Botâo 13
+        self.botão_1_3 = tk.Button(self.window)
+        self.botão_1_3.configure(command=self.botão_1_3clicado)
+        self.botão_1_3.grid(row=0, column=0, sticky="nsew")
+        # Botão 21
+        self.botão_2_1 = tk.Button(self.window)
+        self.botão_2_1.configure(command=self.botão_2_1clicado)
+        self.botão_2_1.grid(row=2, column=1, sticky="nsew")
+        # Botão 22
+        self.botão_2_2 = tk.Button(self.window)
+        self.botão_2_2.configure(command=self.botão_2_20clicado)
+        self.botão_2_2.grid(row=2, column=2, sticky="nsew")
+        # Botão 23 
+        self.botão_2_3 = tk.Button(self.window)
+        self.botão_2_3.configure(command=self.botão_2_3clicado)
+        self.botão_2_3.grid(row=2, column=3, sticky="nsew")
+        # Botão 31
+        self.botão_3_1 = tk.Button(self.window)
+        self.botão_3_1.configure(command=self.botão_3_1clicado)
+        self.botão_3_1.grid(row=3, column=1, sticky="nsew")
+        # Botão 32
+        self.botão_3_2 = tk.Button(self.window)
+        self.botão_3_2.configure(command=self.botão_3_2clicado)
+        self.botão_3_2.grid(row=3, column=2, sticky="nsew")
+        # Botão 33
+        self.botão_3_3 = tk.Button(self.window)
+        self.botão_3_3.configure(command=self.botão_3_3clicado)
+        self.botão_3_3.grid(row=3, column=3, sticky="nsew")
+        
         # Definindo label
         self.label = tk.Label(self.window)
         self.label.grid(row = 0, column = 0, columnspan=3)
-        self.label.configure(text = "X, é a sua vez")
-            
+        if self.jogador == 'X':
+            self.label.configure(text = "X, é a sua vez")
+        if self.jogador == 'O':
+            self.label.configure(text = "O, é a sua vez")
         # Definindo botôes
         #self.matriz = np.zeros((3,3))
         
@@ -29,6 +70,7 @@ class tabuleiro:
         
     def joga_X(self):
         self.label.configure(text = "X, é a sua vez")
+        
         
 jogo = tabuleiro()
 jogo.iniciar()
