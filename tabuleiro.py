@@ -17,10 +17,8 @@ class tabuleiro:
         self.window.columnconfigure(2, minsize=100)
         # Definindo label
         self.label = tk.Label(self.window)
-        self.label.grid(row = 3, column = 0, columnspan=3)
-        if True:
-            self.label.configure(text = "X, é a sua vez")
-        else:
+        self.label.grid(row = 0, column = 0, columnspan=3)
+        self.label.configure(text = "X, é a sua vez")
             
         # Definindo botôes
         #self.matriz = np.zeros((3,3))
@@ -28,6 +26,9 @@ class tabuleiro:
         
     def iniciar(self):
         self.window.mainloop() 
+        
+    def joga_X(self):
+        self.label.configure(text = "X, é a sua vez")
         
 jogo = tabuleiro()
 jogo.iniciar()
