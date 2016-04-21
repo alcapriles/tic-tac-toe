@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import tkinter as tk
 import numpy as np
-
+# importar jogo
 class tabuleiro:
     # Definindo a classe
     def __init__(self):
