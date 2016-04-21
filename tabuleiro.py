@@ -59,7 +59,7 @@ class tabuleiro:
         self.label = tk.Label(self.window)
         self.label.grid(row = 0, column = 0, columnspan=3)
         self.label.configure(font="Courier 20 bold")
-        self.label.configure(command=self.preenche_label)
+        self.label.configure(text = "Funiciona +-")
 
     # Definindo funções da classe 
     # Função iniciar
@@ -67,11 +67,7 @@ class tabuleiro:
         self.window.mainloop() 
     # Função label, precisa melhorar    
     def preenche_label(self, letra):
-        self.label.configure(font="Courier 20 bold")
-        self.label.configure(text = "É a vez de: {0}".format(letra))
-    # Label para X    
-    def preenche_label_X(self):
-       self.preenche_label(X)
+        print("Label funciona para: {0}".format(letra))
    #    self.jogador == 'X':
    #        self.label.configure(font="Courier 20 bold")
    #        self.label.configure(text = "X, é a sua vez")
