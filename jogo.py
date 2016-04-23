@@ -1,22 +1,55 @@
 import numpy as np
 
 class Jogo:
-	def __init__(self):b
-		self.jogador = 'X' 
-		self.tabuleiro = np.zeros((3,3))
+    def __init__(self):
+        self.jogador = 'X' 
+        self.tabuleiro = np.zeros((3,3))
 
-	def recebe_jogada(linha,coluna):
-		self.tabuleiro[linha, coluna] = self.jogador
-		if self.jogador == 'X':
-			self.jogador = 'O'
-		else:
-			self.jogador = 'X'
+    def recebe_jogada(self, linha, coluna):
+        if self.tabuleiro[linha,coluna] == 0:
+            self.tabuleiro[linha, coluna] = self.jogador
+            if self.jogador == 'X':
+                self.jogador = 'O'
+            else:
+                self.jogador = 'X'
 
-    def verifica_ganhador():
-	#retorna 0 em caso de empate
-	#retorna 1 se X for o vencedor
-	#retorna 2 se O for o vencedor
-	#retorna -2 se nenhuma das anteriores for verdadeira
+    def verifica_ganhador(self):
+        if self._checar('X'):
+            return 1
+        if self._checar('O'):
+            return 2
+        empate = True
+        for i in range(3):
+            for j in range(3):
+                empate = empate and self.tabuleiro[i,j]
+        if empate:
+            return 0
+        return -1
 
-	def limpa_jogadas():
-	#reinicia o jogo mantendo a vez do jogador
+
+    def _checar(self, jogador):
+        for i in range(3):
+            w = True
+            for j in range(3):
+                w = w and (self.tabuleiro[i,j] == jogador)   
+            if w:
+                return w
+        
+            for j in range(3):
+                w = w and (self.tabuleiro[j,i] == jogador)
+            if w:
+                return w
+            
+        w = True    
+        for i in range(3):
+            w = w and (self.tabuleiro[i,i] == jogador)
+        if w:
+            return w
+        
+        w = True
+        for i in range(3):
+            w = w and (self.tabuleiro[i, 2-i] == jogador)
+        return w
+
+    def limpa_jogadas():
+        self.tabuleiro = np.zeros((3,3))
