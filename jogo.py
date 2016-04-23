@@ -3,10 +3,10 @@ import numpy as np
 class Jogo:
     def __init__(self):
         self.jogador = 'X' 
-        self.tabuleiro = np.zeros((3,3))
+        self.tabuleiro = np.array([['', '', ''], ['', '', ''], ['', '', '']])
 
     def recebe_jogada(self, linha, coluna):
-        if self.tabuleiro[linha,coluna] == 0:
+        if self.tabuleiro[linha,coluna] == '':
             self.tabuleiro[linha, coluna] = self.jogador
             if self.jogador == 'X':
                 self.jogador = 'O'
@@ -52,4 +52,4 @@ class Jogo:
         return w
 
     def limpa_jogadas():
-        self.tabuleiro = np.zeros((3,3))
+        self.tabuleiro = np.array([['', '', ''], ['', '', ''], ['', '', '']])
