@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import tkinter as tk
 import numpy as np
-class tabuleiro:
+class Tabuleiro:
     # Definindo a classe
     def __init__(self):
         # Definindo janela
@@ -16,49 +16,23 @@ class tabuleiro:
         self.window.columnconfigure(1, minsize=100)
         self.window.columnconfigure(2, minsize=100)
         
-        # Definindo botões
-        # Botão 10
-        self.botão_1_0 = tk.Button(self.window)
-        self.botão_1_0.configure(command=self.botão_1_0clicado)
-        self.botão_1_0.grid(row=1, column=0, sticky="nsew")
-        # Botão 11
-        self.botão_1_1 = tk.Button(self.window)
-        self.botão_1_1.configure(command=self.botão_1_1clicado)
-        self.botão_1_1.grid(row=1, column=1, sticky="nsew")
-        # Botâo 12
-        self.botão_1_2 = tk.Button(self.window)
-        self.botão_1_2.configure(command=self.botão_1_2clicado)
-        self.botão_1_2.grid(row=1, column=2, sticky="nsew")
-        # Botão 20
-        self.botão_2_0 = tk.Button(self.window)
-        self.botão_2_0.configure(command=self.botão_2_0clicado)
-        self.botão_2_0.grid(row=2, column=0, sticky="nsew")
-        # Botão 21
-        self.botão_2_1 = tk.Button(self.window)
-        self.botão_2_1.configure(command=self.botão_2_1clicado)
-        self.botão_2_1.grid(row=2, column=1, sticky="nsew")
-        # Botão 22 
-        self.botão_2_2 = tk.Button(self.window)
-        self.botão_2_2.configure(command=self.botão_2_2clicado)
-        self.botão_2_2.grid(row=2, column=2, sticky="nsew")
-        # Botão 30
-        self.botão_3_0 = tk.Button(self.window)
-        self.botão_3_0.configure(command=self.botão_3_0clicado)
-        self.botão_3_0.grid(row=3, column=0, sticky="nsew")
-        # Botão 31
-        self.botão_3_1 = tk.Button(self.window)
-        self.botão_3_1.configure(command=self.botão_3_1clicado)
-        self.botão_3_1.grid(row=3, column=1, sticky="nsew")
-        # Botão 32
-        self.botão_3_2 = tk.Button(self.window)
-        self.botão_3_2.configure(command=self.botão_3_2clicado)
-        self.botão_3_2.grid(row=3, column=2, sticky="nsew")
-        
+        # definindo botôes
+        for i in range(1,4):
+            for j in range(3):
+                self._fazer_botao(i,j)
+
         # Definindo label
         self.label = tk.Label(self.window)
         self.label.grid(row = 0, column = 0, columnspan=3)
         self.label.configure(font="Courier 20 bold")
-        self.label.configure(text = "Funiciona +-")
+        self.label.configure(text = "Jogo da Velha")   
+
+    def _fazer_botao(self, linha, coluna):
+        botao = tk.Button(self.window)
+        botao.configure(command = lambda: self.botao_clicado(linha, coluna, botao))
+        botao.grid(row=linha, column=coluna, sticky="nsew")
+
+        
 
     # Definindo funções da classe 
     # Função iniciar
@@ -74,62 +48,11 @@ class tabuleiro:
    #        self.label.configure(font="Courier 20 bold")
    #        self.label.configure(text = "O, é a sua vez")
    # Função dos botões
-    def botão_clicado(self, i, j):
+    def botao_clicado(self, i, j, botao):
         print('Botão {0}, {1} clicado'.format(i, j))
-    # Botão 10
-    def botão_1_0clicado(self):
-        self.botão_clicado(1, 0)
-        self.botão_1_0.configure(font="Courier 35 bold")
-        self.botão_1_0.configure(text = "x")
-        self.botão_1_0.configure(state = "disabled")
-    # Botão 11
-    def botão_1_1clicado(self):
-        self.botão_clicado(1, 1)
-        self.botão_1_1.configure(font="Courier 35 bold")
-        self.botão_1_1.configure(text = "x")
-        self.botão_1_1.configure(state = "disabled")
-    # Botão 12
-    def botão_1_2clicado(self):
-        self.botão_clicado(1, 2)
-        self.botão_1_2.configure(font="Courier 35 bold")
-        self.botão_1_2.configure(text = "x")
-        self.botão_1_2.configure(state = "disabled")
-    # Botão 20
-    def botão_2_0clicado(self):
-        self.botão_clicado(2, 0)
-        self.botão_2_0.configure(font="Courier 35 bold")
-        self.botão_2_0.configure(text = "x")
-        self.botão_2_0.configure(state = "disabled")
-    # Botão 21
-    def botão_2_1clicado(self):
-        self.botão_clicado(2, 1)
-        self.botão_2_1.configure(font="Courier 35 bold")
-        self.botão_2_1.configure(text = "x")
-        self.botão_2_1.configure(state = "disabled")
-    # Botão 22
-    def botão_2_2clicado(self):
-        self.botão_clicado(2, 2)
-        self.botão_2_2.configure(font="Courier 35 bold")
-        self.botão_2_2.configure(text = "x")
-        self.botão_2_2.configure(state = "disabled")
-    # Botão 30
-    def botão_3_0clicado(self):
-        self.botão_clicado(3, 0)
-        self.botão_3_0.configure(font="Courier 35 bold")
-        self.botão_3_0.configure(text = "x")
-        self.botão_3_0.configure(state = "disabled")
-    # Botão 31
-    def botão_3_1clicado(self):
-        self.botão_clicado(3, 1)
-        self.botão_3_1.configure(font="Courier 35 bold")
-        self.botão_3_1.configure(text = "x")
-        self.botão_3_1.configure(state = "disabled")
-    # Botão 32
-    def botão_3_2clicado(self):
-        self.botão_clicado(3, 2)
-        self.botão_3_2.configure(font="Courier 35 bold")
-        self.botão_3_2.configure(text = "x")
-        self.botão_3_2.configure(state = "disabled")
-        
-jogo = tabuleiro()
+        botao.configure(font="Courier 35 bold")
+        botao.configure(text = "x")
+        botao.configure(state = "disabled")
+
+jogo = Tabuleiro()
 jogo.iniciar()
