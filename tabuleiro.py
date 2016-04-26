@@ -54,12 +54,8 @@ class Tabuleiro:
             top = tk.Toplevel()
             msg = tk.Message(top, text=('Deu empate.'))
             msg.pack()
-            button = tk.Button(top, text="Novo jogo", command=top.destroy)
+            button = tk.Button(top, text="Novo jogo", command= Tabuleiro.iniciar)
             button.pack()
             
-
-
-
-
 j = Tabuleiro()
 j.iniciar()
