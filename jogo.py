@@ -53,6 +53,4 @@ class Jogo:
         return w
 
     def limpa_jogadas():
-        j = Tabuleiro()
-        j.iniciar()
-        #self.tabuleiro = np.array([['', '', ''], ['', '', ''], ['', '', '']])
+        self.tabuleiro = np.array([['', '', ''], ['', '', ''], ['', '', '']])

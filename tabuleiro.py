@@ -52,9 +52,9 @@ class Tabuleiro:
             button.pack()
         elif status == 0:
             top = tk.Toplevel()
-            msg = tk.Message(top, text=('Deu empate.'))
+            msg = tk.Message(top, text=('Deu velha.'))
             msg.pack()
-            button = tk.Button(top, text="Novo jogo", command= Tabuleiro.iniciar)
+            button = tk.Button(top, text="Novo jogo", command= Jogo.limpa_jogadas)
             button.pack()
             
 j = Tabuleiro()
