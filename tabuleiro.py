@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import messagebox
 import numpy as np
 from jogo import Jogo
 
@@ -31,7 +32,7 @@ class Tabuleiro:
 
     def _fazer_botao(self, linha, coluna):
         botao = tk.Button(self.window)
-        botao.configure(command = lambda: self.botao_clicado(linha, coluna, botao))
+        botao.configure(command = lambda i=linha, j=coluna: self.botao_clicado(i, j, botao))
         botao.grid(row=linha, column=coluna, sticky="nsew")
 
     def iniciar(self):
@@ -45,17 +46,24 @@ class Tabuleiro:
         self.jogo.recebe_jogada(i-1, j)
         status = self.jogo.verifica_ganhador()
         if status == 1 or status == 2:
-            top = tk.Toplevel()
-            msg = tk.Message(top, text=('E o ganhador é... X!') if status == 1 else 'E o ganhador é... O!')
-            msg.pack()
-            button = tk.Button(top, text="Novo jogo", command=top.destroy)
-            button.pack()
+            resultado = messagebox.askyesno(title="Resultado", message=('E o ganhador é... X!') if status == 1 else 'E o ganhador é... O!')
+            resultado = messagebox.askyesno(title= "Resultado", message= "Deu velha! Iniciar novo jogo?")
+            messagebox.showinfo(title="Novo jogo", message="Tem certeza?")
+            Jogo.limpa_jogadas
+            if resultado == True:
+                for i in range(1,4):
+                    for j in range(3):
+                        self._fazer_botao(i,j)
         elif status == 0:
-            top = tk.Toplevel()
-            msg = tk.Message(top, text=('Deu velha.'))
-            msg.pack()
-            button = tk.Button(top, text="Novo jogo", command= Jogo.limpa_jogadas)
-            button.pack()
+            resultado = messagebox.askyesno(title= "Resultado", message= "Deu velha! Iniciar novo jogo?")
+            messagebox.showinfo(title="Novo jogo", message="Tem certeza?")
+            Jogo.limpa_jogadas
+            if resultado == True:
+                for i in range(1,4):
+                    for j in range(3):
+                        self._fazer_botao(i,j)
+                        
+                         
             
 j = Tabuleiro()
 j.iniciar()

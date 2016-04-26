@@ -52,5 +52,5 @@ class Jogo:
             w = w and (self.tabuleiro[i, 2-i] == jogador)
         return w
 
-    def limpa_jogadas():
+    def limpa_jogadas(self):
         self.tabuleiro = np.array([['', '', ''], ['', '', ''], ['', '', '']])
