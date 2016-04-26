@@ -49,19 +49,20 @@ class Tabuleiro:
             resultado = messagebox.askyesno(title="Resultado", message=('E o ganhador é... X!') if status == 1 else 'E o ganhador é... O!')
             resultado = messagebox.askyesno(title= "Resultado", message= "Deu velha! Iniciar novo jogo?")
             messagebox.showinfo(title="Novo jogo", message="Tem certeza?")
-            Jogo.limpa_jogadas
+            self.jogo.limpa_jogadas()
             if resultado == True:
                 for i in range(1,4):
                     for j in range(3):
                         self._fazer_botao(i,j)
         elif status == 0:
             resultado = messagebox.askyesno(title= "Resultado", message= "Deu velha! Iniciar novo jogo?")
-            messagebox.showinfo(title="Novo jogo", message="Tem certeza?")
-            Jogo.limpa_jogadas
+            messagebox.showinfo(title="Novo jogo?", message="Tem certeza?")
+            self.jogo.limpa_jogadas()
             if resultado == True:
                 for i in range(1,4):
                     for j in range(3):
                         self._fazer_botao(i,j)
+                        
                         
                          
             
