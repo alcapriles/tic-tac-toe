@@ -35,7 +35,8 @@ class Jogo:
                 w = w and (self.tabuleiro[i,j] == jogador)   
             if w:
                 return w
-        
+            
+            w = True
             for j in range(3):
                 w = w and (self.tabuleiro[j,i] == jogador)
             if w:

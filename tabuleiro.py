@@ -46,7 +46,7 @@ class Tabuleiro:
         self.jogo.recebe_jogada(i-1, j)
         status = self.jogo.verifica_ganhador()
         if status == 1 or status == 2:
-            resultado = messagebox.askyesno(title="Resultado", message=('E o ganhador é... X!') if status == 1 else 'E o ganhador é... O!')
+            resultado = messagebox.showinfo(title="Resultado", message=('E o ganhador é... X!') if status == 1 else 'E o ganhador é... O!')
             resultado = messagebox.askyesno(title= "Resultado", message= "Deu velha! Iniciar novo jogo?")
             messagebox.showinfo(title="Novo jogo", message="Tem certeza?")
             self.jogo.limpa_jogadas()
